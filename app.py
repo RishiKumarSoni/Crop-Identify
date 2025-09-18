@@ -44,7 +44,7 @@ def main():
 
     # Sidebar: model
     # Sidebar logo only
-    st.sidebar.image("assets/annam_logo.png", use_container_width=True)  
+    st.sidebar.image("assets/annam_logo.png", width="stretch")  
     # Optional: still keep model path hidden in backend
     model_path = "models/best_10cls_982.pt"
 
@@ -66,11 +66,11 @@ def main():
     # Decide which input to use
     if uploaded is not None:
         pil_img = Image.open(uploaded).convert("RGB")
-        st.image(pil_img, caption="Input image (from upload)", use_column_width=True, output_format="JPEG")
+        st.image(pil_img, caption="Input image (from upload)", width="stretch", output_format="JPEG")
 
     elif camera_img is not None:
         pil_img = Image.open(camera_img).convert("RGB")
-        st.image(pil_img, caption="Input image (from camera)", use_column_width=True, output_format="JPEG")
+        st.image(pil_img, caption="Input image (from camera)", width="stretch", output_format="JPEG")
 
     else:
         st.info("Upload an image or take a photo to classify.")
