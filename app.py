@@ -39,11 +39,11 @@ def predict(model, pil_img):
     return probs
 
 def main():
-    st.set_page_config(page_title="Crop Classification", layout="centered")
+    st.set_page_config(page_title="Crop Identification", layout="centered")
     load_css("static/style.css")
 
     st.markdown('<div class="app-container">', unsafe_allow_html=True)
-    st.markdown('<div class="app-header"><h2>Crop Classification</h2></div>', unsafe_allow_html=True)
+    st.markdown('<div class="app-header"><h2>Crop Identification</h2></div>', unsafe_allow_html=True)
 
     # Sidebar: model
     # Sidebar logo only
