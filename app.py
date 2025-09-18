@@ -59,8 +59,18 @@ def main():
 
     # Upload image
     uploaded = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
+
+    # camera input option
+    camera_img = st.camera_input("-") 
+
     if uploaded is None:
         st.info("Upload an image to classify.")
+        st.markdown('</div>', unsafe_allow_html=True)
+        return
+    elif camera_img is not None:
+        pil_img = Image.open(camera_img).convert("RGB")
+    else:
+        st.info("Upload an image or take a photo to classify.")
         st.markdown('</div>', unsafe_allow_html=True)
         return
 
