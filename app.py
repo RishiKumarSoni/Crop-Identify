@@ -61,21 +61,22 @@ def main():
     uploaded = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
     # camera input option
-    camera_img = st.camera_input("-") 
+    camera_img = st.camera_input("Take a photo") 
 
-    if uploaded is None:
-        st.info("Upload an image to classify.")
-        st.markdown('</div>', unsafe_allow_html=True)
-        return
+    # Decide which input to use
+    if uploaded is not None:
+        pil_img = Image.open(uploaded).convert("RGB")
+        st.image(pil_img, caption="Input image (from upload)", use_column_width=True, output_format="JPEG")
+
     elif camera_img is not None:
         pil_img = Image.open(camera_img).convert("RGB")
+        st.image(pil_img, caption="Input image (from camera)", use_column_width=True, output_format="JPEG")
+
     else:
         st.info("Upload an image or take a photo to classify.")
         st.markdown('</div>', unsafe_allow_html=True)
         return
 
-    pil_img = Image.open(uploaded).convert("RGB")
-    st.image(pil_img, caption="Input image", use_column_width=True, output_format="JPEG")
 
     # Predict
     with st.spinner("Running inference..."):
