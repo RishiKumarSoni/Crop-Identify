@@ -1,0 +1,44 @@
+/* static/style.css */
+
+/* Container tweaks */
+.app-container {
+  max-width: 900px;
+  margin: 18px auto;
+  padding: 14px;
+  border-radius: 12px;
+}
+
+/* Header */
+.app-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Image card */
+.image-card {
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Result card */
+.result-card {
+  background: #fff;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Probability list */
+.prob-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.prob-item {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 6px 0;
+}
