@@ -26,9 +26,12 @@ def load_css(path="static/style.css"):
 
 def predict(model, pil_img):
     arr = np.array(pil_img.convert("RGB"))
-    w, h = arr.shape[:2]
-    # print(f"\n ({w} ,{h})")
-    results = model.predict(source=arr, task="classify", imgsz=(w, h), verbose=False)
+    # w, h = arr.shape[:2]
+    if arr.shape[0]>1024:
+        shape = (640, 640)
+    else:
+        shape = (224, 224)
+    results = model.predict(source=arr, task="classify", imgsz=shape, verbose=False)
     r = results[0]
 
     # Extract probabilities
